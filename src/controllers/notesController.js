@@ -1,7 +1,7 @@
 import createHttpError from 'http-errors';
 import { Note } from '../models/note.js';
 
-export const getNotes = async (req, res) => {
+export const getAllNotes = async (req, res) => {
   const note = await Note.find();
   res.status(200).json(note);
 };
@@ -16,10 +16,6 @@ export const getNoteById = async (req, res, next) => {
   }
 
   res.status(200).json(note);
-};
-
-export const getError = () => {
-  throw new Error('Simulated server error');
 };
 
 export const createNote = async (req, res) => {
